@@ -1,0 +1,196 @@
+Instructions for running program GibbsMDF
+
+Installation and compilation
+
+All included source (.f90) and include (.inc) are required for compilation.
+The program has been compiled for MACOS using the 
+Absoft Pro Fortran 21.0.2
+IDE version 2.2.10.1
+Qt version 5.12.3
+
+Compilation using the Absoft "AWE" routines is required for windowing and graphics.
+If the program is compiled with a different compiler, the graphics routines will need to be modified
+Graphics routines are all included in the files 
+AWE_Gibbs_Dlogs.f90
+PlotRoutines.f90
+
+Routines to create Adobe Illustrator compatible graphics files are in 
+PSPlotRoutines.f90 and shouldn't need to be modified 
+(they only generate text files)
+
+Source files for compilation
+
+"$(OBJDIR)/AWE_Preferences.o": "AWE_Preferences.f95"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/AWE_Preferences.o" "AWE_Preferences.f95"
+
+"$(OBJDIR)/AWE_Gibbs_Dlogs.o": "Gibbs6MDF_subs/AWE_Gibbs_Dlogs.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/AWE_Gibbs_Dlogs.o" "Gibbs6MDF_subs/AWE_Gibbs_Dlogs.f90"
+
+"$(OBJDIR)/BermanExcess.o": "Gibbs6MDF_subs/BermanExcess.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/BermanExcess.o" "Gibbs6MDF_subs/BermanExcess.f90"
+
+"$(OBJDIR)/CheckMineral.o": "Gibbs6MDF_subs/CheckMineral.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/CheckMineral.o" "Gibbs6MDF_subs/CheckMineral.f90"
+
+"$(OBJDIR)/GB_AffinityGrid.o": "Gibbs6MDF_subs/GB_AffinityGrid.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_AffinityGrid.o" "Gibbs6MDF_subs/GB_AffinityGrid.f90"
+
+"$(OBJDIR)/GB_Diffusion_routines.o": "Gibbs6MDF_subs/GB_Diffusion_routines.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_Diffusion_routines.o" "Gibbs6MDF_subs/GB_Diffusion_routines.f90"
+
+"$(OBJDIR)/GB_DumpGrid.o": "Gibbs6MDF_subs/GB_DumpGrid.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_DumpGrid.o" "Gibbs6MDF_subs/GB_DumpGrid.f90"
+
+"$(OBJDIR)/GB_GarnetZoningMap.o": "Gibbs6MDF_subs/GB_GarnetZoningMap.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_GarnetZoningMap.o" "Gibbs6MDF_subs/GB_GarnetZoningMap.f90"
+
+"$(OBJDIR)/GB_Grid_Plot_routines.o": "Gibbs6MDF_subs/GB_Grid_Plot_routines.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_Grid_Plot_routines.o" "Gibbs6MDF_subs/GB_Grid_Plot_routines.f90"
+
+"$(OBJDIR)/GB_GrowNodes.o": "Gibbs6MDF_subs/GB_GrowNodes.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_GrowNodes.o" "Gibbs6MDF_subs/GB_GrowNodes.f90"
+
+"$(OBJDIR)/GB_MakeAnimation.o": "Gibbs6MDF_subs/GB_MakeAnimation.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_MakeAnimation.o" "Gibbs6MDF_subs/GB_MakeAnimation.f90"
+
+"$(OBJDIR)/GB_MDF_Routines_3.o": "Gibbs6MDF_subs/GB_MDF_Routines_3.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_MDF_Routines_3.o" "Gibbs6MDF_subs/GB_MDF_Routines_3.f90"
+
+"$(OBJDIR)/GB_MDF_Utilities.o": "Gibbs6MDF_subs/GB_MDF_Utilities.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_MDF_Utilities.o" "Gibbs6MDF_subs/GB_MDF_Utilities.f90"
+
+"$(OBJDIR)/GB_ParallelToTangent.o": "Gibbs6MDF_subs/GB_ParallelToTangent.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_ParallelToTangent.o" "Gibbs6MDF_subs/GB_ParallelToTangent.f90"
+
+"$(OBJDIR)/GB_PhCompPlot.o": "Gibbs6MDF_subs/GB_PhCompPlot.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_PhCompPlot.o" "Gibbs6MDF_subs/GB_PhCompPlot.f90"
+
+"$(OBJDIR)/GB_PlotGBComp_2.o": "Gibbs6MDF_subs/GB_PlotGBComp_2.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_PlotGBComp_2.o" "Gibbs6MDF_subs/GB_PlotGBComp_2.f90"
+
+"$(OBJDIR)/GB_PolyModelRoutine.o": "Gibbs6MDF_subs/GB_PolyModelRoutine.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_PolyModelRoutine.o" "Gibbs6MDF_subs/GB_PolyModelRoutine.f90"
+
+"$(OBJDIR)/GB_ReadModelFile.o": "Gibbs6MDF_subs/GB_ReadModelFile.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_ReadModelFile.o" "Gibbs6MDF_subs/GB_ReadModelFile.f90"
+
+"$(OBJDIR)/GB_ScaleGrid.o": "Gibbs6MDF_subs/GB_ScaleGrid.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_ScaleGrid.o" "Gibbs6MDF_subs/GB_ScaleGrid.f90"
+
+"$(OBJDIR)/GB_SegPlot.o": "Gibbs6MDF_subs/GB_SegPlot.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GB_SegPlot.o" "Gibbs6MDF_subs/GB_SegPlot.f90"
+
+"$(OBJDIR)/Gibbs_Activity.o": "Gibbs6MDF_subs/Gibbs_Activity.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_Activity.o" "Gibbs6MDF_subs/Gibbs_Activity.f90"
+
+"$(OBJDIR)/Gibbs_Compute.o": "Gibbs6MDF_subs/Gibbs_Compute.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_Compute.o" "Gibbs6MDF_subs/Gibbs_Compute.f90"
+
+"$(OBJDIR)/Gibbs_FileInput.o": "Gibbs6MDF_subs/Gibbs_FileInput.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_FileInput.o" "Gibbs6MDF_subs/Gibbs_FileInput.f90"
+
+"$(OBJDIR)/Gibbs_fluids.o": "Gibbs6MDF_subs/Gibbs_fluids.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_fluids.o" "Gibbs6MDF_subs/Gibbs_fluids.f90"
+
+"$(OBJDIR)/Gibbs_Global.o": "Gibbs6MDF_subs/Gibbs_Global.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_Global.o" "Gibbs6MDF_subs/Gibbs_Global.f90"
+
+"$(OBJDIR)/Gibbs_misc.o": "Gibbs6MDF_subs/Gibbs_misc.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_misc.o" "Gibbs6MDF_subs/Gibbs_misc.f90"
+
+"$(OBJDIR)/Gibbs_PP.o": "Gibbs6MDF_subs/Gibbs_PP.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_PP.o" "Gibbs6MDF_subs/Gibbs_PP.f90"
+
+"$(OBJDIR)/Gibbs_rexn.o": "Gibbs6MDF_subs/Gibbs_rexn.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_rexn.o" "Gibbs6MDF_subs/Gibbs_rexn.f90"
+
+"$(OBJDIR)/Gibbs_Steps.o": "Gibbs6MDF_subs/Gibbs_Steps.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_Steps.o" "Gibbs6MDF_subs/Gibbs_Steps.f90"
+
+"$(OBJDIR)/Gibbs_Thermocalc.o": "Gibbs6MDF_subs/Gibbs_Thermocalc.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Gibbs_Thermocalc.o" "Gibbs6MDF_subs/Gibbs_Thermocalc.f90"
+
+"$(OBJDIR)/GibbsMDF.o": "Gibbs6MDF_subs/GibbsMDF.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/GibbsMDF.o" "Gibbs6MDF_subs/GibbsMDF.f90"
+
+"$(OBJDIR)/MyWindow.o": "Gibbs6MDF_subs/MyWindow.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/MyWindow.o" "Gibbs6MDF_subs/MyWindow.f90"
+
+"$(OBJDIR)/PlotRoutines.o": "Gibbs6MDF_subs/PlotRoutines.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/PlotRoutines.o" "Gibbs6MDF_subs/PlotRoutines.f90"
+
+"$(OBJDIR)/PolygonArea.o": "Gibbs6MDF_subs/PolygonArea.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/PolygonArea.o" "Gibbs6MDF_subs/PolygonArea.f90"
+
+"$(OBJDIR)/PSPlotRoutines.o": "Gibbs6MDF_subs/PSPlotRoutines.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/PSPlotRoutines.o" "Gibbs6MDF_subs/PSPlotRoutines.f90"
+
+"$(OBJDIR)/Reduce.o": "Gibbs6MDF_subs/Reduce.f90"
+	$(ABSOFT_F95) -c -nowdir -YLOOP_ANALYZER -LNO:simd_verbose=on -LNO:apo_verbose=on -CG:filetable_verbose=on $(ABSOFT_F95_FLAGS) -o "$(OBJDIR)/Reduce.o" "Gibbs6MDF_subs/Reduce.f90"
+
+-----------------------
+Setting up the execution folder
+
+On execution, the program reads needed files from a folder called
+GibbsMDF_Essentials
+
+This folder contains the files 
+Gibbs.PlotDefinitions
+GibbsColors.txt
+GibbsMDF.FIG
+LUT 16 colors.txt
+LUT_Jet_Formatted no black.txt
+LUT_Jet_Formatted.txt
+SPaC18_Thermo_GB.dat
+
+These MUST be inside the GibbsMDF_Essentials folder
+
+User files can be in any directories.
+
+--------------------------------
+On Execution
+
+The program reads the files in the above folder and presents the following menu:
+
+  ***********************************
+  MAIN MENU OPTIONS:
+    1 = Begin/save problem
+   -----------------------------
+    2 = Single steps
+    3 = Call Subroutine GB_Diffuse_Hex()
+    4 = Run Model
+    42= Run Model 2
+    43= Run Model 3
+    5 = Segment Plot routines
+    6 = Grid Plot routines
+    7 = Phase comp Plot routines
+   -----------------------------
+    8 = Go to global menu
+    9 = Plotting menu
+   10 = Set EqOrMDFProblem variable
+   11 = Thermodynamic data menu
+   12 = Change output type (affinity in output file)
+   -----------------------------
+   -----------------------------
+  CHOOSE OPTION
+
+Normal Operation involves opening a problem using 
+option 1 
+and then running the problem using 
+option 43  (options 4 and 42 are obsolete)
+
+New menus will appear depending on the option chosen.
+
+Sample problem
+Model definition file = __GB Model B_1_3.txt  (open this to start a new problem)
+Master input file for minerals in problem = _MIF 600,5kb calc.txt
+Grid definition file = _Garnet_3 draft_1.svg_MODEL.txt
+PolyModel file = _PolyModel_Grt_m1D.txt  (this runs a problem automatically with variable diffusion/reaction using option 101)
+
+These last 3 files must all be in the same folder as the Model definition file
+
+Various other routines exist for plotting the grid, mineral or grain boundary compositions
+
+
+
+

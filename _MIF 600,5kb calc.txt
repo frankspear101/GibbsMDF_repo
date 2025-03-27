@@ -1,0 +1,63 @@
+Gibbs3 MIF file
+ Indices of stable asm:     1    2    3    4    5    6    7                                                                                                                                                                                                    
+   600.0  5000.0         Tstart and Pstart
+Si    Al    Ti    Fe3   Mg    Fe    Mn    Ca    Na    K     H2O   CO2 
+ 1     1     0     0     1     1     1     1     1     1     1     0
+     1              IMass
+***************************************
+   119                     Grain_Boundary                  
+     1.00000E+00       0       0	1     VStart,Fractl,IncludeNew
+     H2OGB         SiGB           AlGB           MgGB           FeGB           MnGB	       CaGB           NaGB           KGB                 
+       1              1              1              1              1              1              1              1            1
+       H2O          Si              Al              Mg              Fe              Mn	          Ca                Na             K       
+     0.167631472     0.559983015	0.185184	0.027039711	0.026816832	0.000723604	0.00522378	0.008770677	0.01862691
+***************************************
+     1                     Quartz                          
+     0.53800E+02       0       0    2   VStart,Fractl,IncludeNew
+     abQz        
+       1
+    XabQz        
+ 1.000000000
+***************************************
+     2                     Water                           
+     0.40649E+02       0       0    1     VStart,Fractl,IncludeNew
+     H2O         
+       1
+    XH2O         
+ 1.000000000
+***************************************
+    17                     Muscovite                       
+    -0.12261E+02       0       0     12  VStart,Fractl,IncludeNew
+     Mg-Celadonit   Fe-Celadonit   Ms          
+       1              1              1
+       Si4         Al4         AlM1        MgM1        FeM1        KA      
+  3.052468000  0.947520000  1.947517000  0.017930000  0.034547000  0.999997000
+***************************************
+    93                     Plagioclase                     
+    -0.32525E+02       0       0     8    VStart,Fractl,IncludeNew
+     Ab             An          
+       1              1
+       Si4         Al4         NaA         CaA     
+  2.783510000  1.216490000  0.783510000  0.216490000
+***************************************
+   123                     Chlorite                        
+    -0.55068E+02       0       0     18    VStart,Fractl,IncludeNew
+     Clinochlore    Mg-Amesite     Daphnite       Fe-Amesite     MnChlorite  
+       1              1              1              1              1
+       SiT1        SiT2        AlT2        AlM1        MgM1        FeM1        MnM1        AlM3        MgM2        FeM2        MnM2    
+  2.000006000  0.589027000  1.410979000  0.410976000  0.180660000  0.399920000  0.008447000  1.000003000  1.013036000  2.919400000  0.067576000
+***************************************
+   122                     Biotite                         
+    -0.44730E+02       0       0    12     VStart,Fractl,IncludeNew
+     Phlogopite     Eastonite      Annite         Siderophylli   MnBiotite   
+       1              1              1              1              1
+       SiT1        SiT2        AlT2        AlM2        MgM2        FeM2        MnM2        MgM1        FeM1        MnM1        K       
+  1.999994000  0.641358000  1.358636000  0.358639000  0.153350000  0.476940000  0.011068000  0.457138000  1.520720000  0.022136000  0.999997000
+***************************************
+    32                     Garnet                          
+    -0.11269E+02       0       0     12    VStart,Fractl,IncludeNew
+     Prp            Alm            Sps            Grs         
+       1              1              1              1
+       SiT         Al          Mg          Fe          Mn          Ca      
+  2.999997000  1.999998000  0.103992000  2.204100000  0.635880000  0.056025000
+***************************************

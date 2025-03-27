@@ -1,0 +1,12 @@
+Info for Garnet 78 in folder 4_Oscillatory garnet_A_1
+64			Crystal number
+ 983.800     119.400	Center coordinates	(these might be in the file already)
+120			XY range for plot (center ± range/2)
+8			Garnet MIF number
+0			Start step
+1200			End step
+3			Spessartine
+0,0.22			Spess range
+
+
+

@@ -1,0 +1,15 @@
+Gibbs3MDF_configuration file                                                    
+*****************************                                                   
+1         Number of thermofiles in list                                         
+SPaC18_Thermo_GB.dat                                                       
+******************************                                                  
+1		Number of bulk rock composition files
+BR_BulkRockAnalyses.txt
+******************************                                                  
+   1  1.000000000000000E-004  0.400000000000000          Gibbs or Newton switch         1e-4 is old value              
+********************************                                                
+   1        0        0         Default plot number,itrip,iA                     
+********************************                                                
+MAD diagram default settings
+600,1200,2		!TcStart, TcEnd, Tincrement
+5000,15000,100		!PbStart, PbEnd, Pincrement

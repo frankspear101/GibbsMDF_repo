@@ -1,0 +1,54 @@
+m1A PolyModelInfoFile
+7	! number of PolySteps
+"4_Oscillatory garnet_B_1/m1D"	! name of base file -- 
+1	! Polystart step
+------------------------------------
+100		! number of steps
+1		! start step	(must be the same as PolyStart Step for the first one
+1		! Number of diffusion+reaction cyclcles to run between each model output step
+500		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+100		! number of steps
+101		! start step	(must be the same as PolyStart Step for the first one
+1		! Number of diffusion+reaction cyclcles to run between each model output step
+5000		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+100		! number of steps
+201		! start step	(must be the same as PolyStart Step for the first one
+2		! Number of diffusion+reaction cyclcles to run between each model output step
+500		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+100		! number of steps
+301		! start step	(must be the same as PolyStart Step for the first one
+2		! Number of diffusion+reaction cyclcles to run between each model output step
+5000		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+200		! number of steps
+401		! start step	(must be the same as PolyStart Step for the first one
+10		! Number of diffusion+reaction cyclcles to run between each model output step
+500		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+100		! number of steps
+601		! start step	(must be the same as PolyStart Step for the first one
+10		! Number of diffusion+reaction cyclcles to run between each model output step
+5000		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------
+500		! number of steps
+701		! start step	(must be the same as PolyStart Step for the first one
+10		! Number of diffusion+reaction cyclcles to run between each model output step
+500		! Number of diffusion iterations
+100		! mole scale factor
+0.1		! time step for reaction progress variable
+------------------------------------

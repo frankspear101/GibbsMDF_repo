@@ -1,0 +1,153 @@
+GB diffusion model -- 9 elements
+'./4_Oscillatory garnet_B_1/_MIF 600,5kb calc.txt'				! input file name
+'./4_Oscillatory garnet_B_1/_Garnet_3 draft_1.svg_MODEL.txt'				! Grid file
+-----------------------------------
+10.0,0.8,2.0		! nominal dXgrid,dGridRemove,dGridAdd  -- Point array has bounds = 30, so segLength/dXgrid needs to be <30. SegLength max = 100 for this model
+-----------------------------------
+2.		! convergence criteria for affinity in Joules
+-----------------------------------
+Elemental diffusion coefficients
+9		! number of entries
+El	Charge	D0(m^2/sec)	ActivationE(kJ)	ActivationV
+H	1.	1.E-4		100.		0	
+Si	4.	1.E-6		100.		0	
+Al	3.	2.E-6		100.		0	
+Mg	2.	5.E-6		100.		0	
+Fe	2.	5.E-6		100.		0	
+Mn	2.	5.E-6		100.		0	
+Ca	2.	3.E-6		100.		0	
+Na	1.	1.E-5		100.		0	
+K	1.	1.E-5		100.		0	
+-----------------------------------
+Grain_boundary_Initial_Compositions
+This_is_read_in_from_the MIF = phase #1
+-----------------------------------
+Grain_boundary_enthalpies_These must always be in the same order as in the MIF (GB = phase #1) - Calibration March 20,2024
+ H2OGB            -322595.445224325
+ SiGB             -928926.361232689
+ AlGB             -837259.551360299
+ MgGB             -637238.199573254
+ FeGB             -303090.431299137
+ MnGB             -411806.851113119
+ CaGB             -740822.699614076
+ NaGB             -362625.920865331
+ KGB              -410970.255450406
+-----------------------------------
+Element color list (note that the first color is always black)
+ Name                                     RGB   R     G     B   C        M        Y        K
+Ax	black                               0    0    0    0   0.000   0.000   0.000   1.000
+H	orange                       16753920  255  165    0   0.000   0.353   1.000   0.000
+Si	red                          16711680  255    0    0   0.000   1.000   1.000   0.000
+Al	teal                            32896    0  128  128   1.000   0.000   0.000   0.498
+Mg	blue                              255    0    0  255   1.000   1.000   0.000   0.000
+Fe	maroon                        8388608  128    0    0   0.000   1.000   1.000   0.498
+Mn	magenta                      16711935  255    0  255   0.000   1.000   0.000   0.000
+Ca	green                           32768    0  128    0   1.000   0.000   1.000   0.498
+Na	violet                       15631086  238  130  238   0.000   0.454   0.000   0.067
+K	cyan                            65535    0  255  255   1.000   0.000   0.000   0.000
+-----------------------------------
+Locations_of_phases_in_rock; The first code is the order of the phase in the MIF -- these MUST be the same
+6	numPhases     1=GB  2=Qtz   3=H2O   4=Ms   5=Pl   6=Chl   7=Bt   8=Grt
+---
+2	Quartz
+g_white                 16316671  248  248  255   0.027   0.027   0.000   0.000
+0				! signifies that all nodes are initialized with this phase
+---
+4	Muscovite
+pink                         16761035  255  192  203   0.000   0.247   0.204   0.000
+8
+8			!Crystal number
+16			!Crystal number
+19			!Crystal number
+32
+41
+46			!Crystal number
+81
+103
+---
+7	Biotite
+brown                        10824234  165   42   42   0.000   0.745   0.745   0.353
+6
+26			!Crystal number
+35
+43
+84
+87
+97
+---
+6	Chlorite
+green                           32768    0  128    0   1.000   0.000   1.000   0.498
+6
+3			!Crystal number
+11
+28			!Crystal number
+52			!Crystal number
+56
+63
+---
+8	Garnet
+magenta                      16711935  255    0  255   0.000   1.000   0.000   0.000
+1
+64 			!Crystal number
+---
+5      Plagioclase
+yellow                       16776960  255  255    0   0.000   0.000   1.000   0.000
+6
+14 			!Crystal number
+33 			!Crystal number
+72 			!Crystal number
+95 			!Crystal number
+99 			!Crystal number
+101 			!Crystal number
+-----------------------------------
+Nodes_to_plot_composition
+16	Number of nodes to plot
+20
+21
+18
+19
+16
+17
+15
+9
+30
+35
+3
+25
+34
+33
+26
+32
+-----------------------------------
+MyColor.space_website
+To_blue_positive_values_of_moles_or_composition
+12
+7effee
+60f3f7
+4ae5fd
+47d7ff
+55c7ff
+3bb7ff
+35a5ff
+4892ff
+007bff
+0061ff
+0041ff
+0000fd
+To_red_negative_values_of_moles
+12
+FAFDB0
+f4ff00
+fce500
+fed900
+ffcc00
+ffbd00
+ffad00
+ff9e00
+ff8600
+ff6b00
+ff4900
+ff0000
+-----------------------------------
+Segs_that_connect_nodes_that_should_never_be_captured -- this will be all garnet nuclei and water "crystals"
+0	= number of crystals to exclude
